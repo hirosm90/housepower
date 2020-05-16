@@ -1,0 +1,12 @@
+[Unit]
+Description = House Power Monitor by keilog
+
+[Service]
+ExecStart = /usr/bin/python3 /opt/housepower/kei.py
+Restart = always
+Type = simple
+WorkingDirectory = /opt/housepower
+
+[Install]
+WantedBy = multi-user.target
+
