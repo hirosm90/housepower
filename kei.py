@@ -18,6 +18,9 @@ import time
 import sys
 import keiconf
 
+# カレントディレクトリをスクリプトのディレクトリに変更
+os.chdir( os.path.dirname(os.path.abspath(__file__)))
+
 # import configuretion file.
 # （設定ファイルをインポートする）
 worker_def = keiconf.worker_def
@@ -34,6 +37,7 @@ if debug:
 else:
     LOGLEVEL = logging.INFO
 
+# ロギングは syslogd の local3 ファシリティにておこなう
 syshandler = SysLogHandler(facility=SysLogHandler.LOG_LOCAL3)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 syshandler.setFormatter(formatter)
@@ -84,7 +88,7 @@ logger.info('Starting at '+os.getcwd()+'... ' )
 while True:
     for wdef in worker_def:
         if not wdef['instance'].isAlive():
-            logger.warning(wdef['class'].__name__ + ' worker object is stoped. restart again.')
+            logger.warning(wdef['class'].__name__ + ' worker object is stoped. Restarting...')
             wdef['instance'] = wdef['class']( ** wdef['args'])
             wdef['instance'].start()
 

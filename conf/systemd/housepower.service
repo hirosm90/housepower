@@ -1,11 +1,17 @@
+#
+# /etc/systemd/system 等に配置
+#
 [Unit]
 Description = House Power Monitor by keilog
 
 [Service]
+
+# 配置場所に合わせる
 ExecStart = /usr/bin/python3 /opt/housepower/kei.py
+
 Restart = always
 Type = simple
-WorkingDirectory = /opt/housepower
+#WorkingDirectory = /opt/housepower
 
 [Install]
 WantedBy = multi-user.target
