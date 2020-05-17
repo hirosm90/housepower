@@ -1,0 +1,13 @@
+kei.ini
+
+.vscode/
+
+.pyc
+
+__pycache__/
+
+*.log
+
+scancache.json
+
+
