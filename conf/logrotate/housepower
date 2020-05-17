@@ -1,0 +1,9 @@
+#
+# /etc/logrotate.d に配置
+#
+/var/log/housepower.log {
+    rotate 4
+    weekly
+    compress
+    missingok
+}
