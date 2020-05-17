@@ -8,10 +8,10 @@ Description = House Power Monitor by keilog
 
 # 配置場所に合わせる
 ExecStart = /usr/bin/python3 /opt/housepower/kei.py
+WorkingDirectory = /opt/housepower
 
 Restart = always
 Type = simple
-#WorkingDirectory = /opt/housepower
 
 [Install]
 WantedBy = multi-user.target
